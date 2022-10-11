@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Input Confirmation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--User Input Verificatio-->
+        <h3>User Input Verification</h3>
+        <div class="users" id="user" style="color: white;" > 
+            <h1 id = "check">Enter Your Details in Capital Letters</h1>
+            <div class="holder">
+                <div class="holdText">First Name:</div> 
+                <div class="holdInput"><input type="text" id = "firstName" placeholder="Your First Name" required/></div>
+            </div>
+            <div class="holder">
+                <div class="holdText"> Last Name:</div> 
+                <div class="holdInput"><input type="text" id = "lastName" placeholder="Your Last Name" required/></div>
+            </div>
+
+            <div class="holder">
+                <div class="holdText">Email:</div> 
+                <div class="holdInput"><input type="email" id = "email" placeholder="Your @ Email" required/></div>
+            </div>
+            <div class="holder">
+                <div class="holdText">Date of Birth:</div> 
+                <div class="holdInput"><input type="date" id = "dob" placeholder="Dirth of Birth" required/></div>
+            </div>
+            <div class="holder">
+                <div class="holdText" >Phone Number:</div>
+                <div class="holdInput">
+                    <select style="height: 27px; border: none;border-bottom-left-radius: 5px; border-top-left-radius: 5px;">
+                        <option value="">+234</option>
+                        <option value="">+233</option>
+                        <option value="">+228</option>
+                    </select>
+                    <input class="selectInput" type="number" id="phone" placeholder="Phone Number">
+                </div>
+            </div>
+            <div class="holder">
+                <div class="holdText">Address:</div> 
+                <div class="holdInput"><input type="text" id = "address" placeholder="Your Address" required/></div>
+            </div>
+            <div class="holder">
+                <button onclick="confirmInfo()" >Submit</button>
+            </div>    
+        </div>
+
+    
+                
+        <!--Confirm details-->
+        <form action="">
+            
+        <div class="result" id ="confirm" style="color: black;">
+            <div class="usersConfirm">
+            <h1>Confirm Your Details Before Clicking Ok</h1>
+        
+                <div class="holder">
+                    <div class="holdText">First Name:</div> 
+                    <div class="holdInput"><input type="text" id = "firstNamec" placeholder="Your First Name" disabled required/></div>
+                </div>
+                <div class="holder">
+                    <div class="holdText"> Last Name:</div> 
+                    <div class="holdInput"><input type="text" id = "lastNamec" placeholder="Your Last Name" disabled required/></div>
+                </div>
+                <div class="holder">
+                    <div class="holdText">Email:</div> 
+                    <div class="holdInput"><input type="email" id = "emailc" placeholder="Your Email" disabled required/></div>
+                </div>
+                <div class="holder">
+                    <div class="holdText">Date of Birth:</div> 
+                    <div class="holdInput"><input type="date" id = "dobc" placeholder="Dirth of Birth" disabled required/></div>
+                </div>
+                <div class="holder">
+                    <div class="holdText">Phone Number: </div>
+                    <div class="holdInput">
+                        <select disabled style="height: 27px; border: none;border-bottom-left-radius: 5px; border-top-left-radius: 5px;">
+                            <option value="">+234</option>
+                            <option value="">+233</option>
+                            <option value="">+228</option>
+                        </select>
+                        <input class="selectInput" id ="phonec" placeholder="Phone Number" disabled required/>
+                    </div>
+                </div>
+                <div class="holder">
+                    <div class="holdText">Address:</div> 
+                    <div class="holdInput"><input type="text" id = "addressc" placeholder="Your Address" disabled required/></div>    
+                </div>
+                <div class="holder">
+                    <div class="holdText"><button type="submit"><a onclick="ThankYou()">OK</a></button></div>
+                    <div class="holdInput" style="background-color:transparent ;"><button onclick="Cancel()">Cancel</button></div>
+                </div>
+                
+            </div>
+        </div>
+  
+        </form>
+
+    <!-- Confirmation script -->
+<script>
+    function confirmInfo() {
+        let firstName = document.getElementById("firstName").value;;
+        let lastName = document.getElementById("lastName").value;
+        let email = document.getElementById("email").value;
+        let dob = document.getElementById("dob").value;
+        let phone = document.getElementById("phone").value;
+        let address = document.getElementById("address").value;
+
+        if(firstName == "" ){
+            alert("Please Enter your First name");
+            firstName.focus();
+        }
+        if(lastName == "" ){
+            alert("Please Enter your Last name");
+            lastName.focus();
+        }
+        if(email == "" ){
+            alert("Please Enter your Email");
+            email.focus();
+        }
+        if(dob == "" ){
+            alert("Please Select your Date of Birth");
+            dob.focus();
+        }
+        if(phone == "" ){
+            alert("Please Enter your Phone Number");
+            phone.focus();
+        }
+        if(address == "" ){
+            alert("Please Enter your Address");
+            address.focus();
+        }
+
+        //Assign values to Confirmation box changing all to Upper Case
+        document.getElementById("firstNamec").value = firstName.toUpperCase();
+        document.getElementById("lastNamec").value = lastName.toUpperCase();
+        document.getElementById("emailc").value = email.toUpperCase();
+        document.getElementById("dobc").value = dob;
+        document.getElementById("phonec").value = phone.toUpperCase();
+        document.getElementById("addressc").value = address.toUpperCase();
+
+        //Display Confirmation Box
+        let confirm = document.getElementById('confirm');
+            if(confirm.style.display==='block'){
+            confirm.style.display = 'none';
+            }else{
+            confirm.style.display = 'block';
+        }
+
+    }
+
+    //Cancel Function
+        function Cancel(){
+            let close = document.getElementById('confirm');
+                if(close.style.display==='none'){
+                close.style.display = 'block';
+                }else{
+                close.style.display = 'none';
+                
+            }
+        }
+
+    //Ok button Function
+    function ThankYou(){
+        alert("Thanks for Signing Up, Welcome Home!!!");
+        window.open("pageLoader.html")
+    }
+</script>
+
+</body>
+</html>

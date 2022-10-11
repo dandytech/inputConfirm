@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Loader 3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class ="body" onload="pageLoad()">
+
+    <div class="center" id="close">
+        <div class="ring"></div>
+        <span>Loading...</span>
+    </div>
+
+    <script>
+        function pageLoad(){
+
+        setTimeout(() => {
+            let loader = document.getElementById("close");
+            loader.style.display = "none"; 
+            window.close("pageLoader.html")
+            window.open("home.html");
+        }, 4000);
+        }
+      
+    </script>
+</body>
+</html>
